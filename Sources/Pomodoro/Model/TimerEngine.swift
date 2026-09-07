@@ -19,7 +19,7 @@ final class TimerEngine: ObservableObject {
     private var activity: NSObjectProtocol?
     private var lastSave = Date.distantPast
 
-    private let tone = TonePlayer()
+    let tone = TonePlayer()
     private let store: Store
 
     /// A mark older than this is retired without sounding. The tones are a

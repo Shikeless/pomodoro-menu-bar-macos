@@ -9,6 +9,12 @@ enum Entry {
         if CommandLine.arguments.contains("--self-check") {
             exit(SelfCheck.run() ? 0 : 1)
         }
+        if CommandLine.arguments.contains("--timer-check") {
+            exit(MainActor.assumeIsolated { TimerCheck.run() } ? 0 : 1)
+        }
+        if CommandLine.arguments.contains("--audio-check") {
+            exit(TonePlayer().check() ? 0 : 1)
+        }
         PomodoroApp.main()
     }
 }

@@ -39,6 +39,18 @@ in at each boundary, round counting, clock formatting, clamping, the restore
 rules, the tone envelope and the stored shape. XCTest and swift-testing ship
 with Xcode, so with Command Line Tools alone this is the test suite.
 
+Two more flags exist for when the app goes quiet, since "I hear nothing" covers
+both a broken app and a muted Mac:
+
+```sh
+./.build/debug/Pomodoro --audio-check   # synthesizes and plays the two tones
+./.build/debug/Pomodoro --timer-check   # drives a real run across a phase change
+```
+
+Both tap the mixer and report the level that actually reaches it, so they answer
+the question without needing your ears. `--timer-check` restores a run six
+seconds short of a change and watches the three warnings and the accent fire.
+
 ## Layout
 
 | File | What is in it |
